@@ -12,7 +12,7 @@ const IndexPage = (props: IndexProps) => {
   const { works } = props
   return (
     <>
-      <section className="text-gray-600 body-font">
+      <section>
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
             <img className="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600"/>
@@ -30,7 +30,7 @@ const IndexPage = (props: IndexProps) => {
           </div>
         </div>
       </section>
-      <section className="text-gray-600 body-font">
+      <section>
         <h2 className="text-center text-2xl">Works</h2>
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
