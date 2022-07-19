@@ -32,7 +32,7 @@ const IndexPage = (props: IndexProps) => {
       </section>
       <section>
         <div className="container mx-auto px-5 py-24">
-          <h2 className="text-center text-3xl">Works</h2>
+          <h2 className="font-fancy	text-center text-3xl">Works</h2>
           <WorkCardList works={works}></WorkCardList>
         </div>
       </section>

@@ -10,6 +10,7 @@ module.exports = {
     fontFamily: {
       ja: [...defaultTheme.fontFamily.sans],
       en: [...defaultTheme.fontFamily.sans],
+      fancy: ["Pacifico"],
     },
     extend: {},
   },
