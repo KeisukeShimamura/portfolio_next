@@ -1,6 +1,6 @@
-import type { NextPage, GetStaticProps } from 'next'
-import Head from 'next/head'
+import type { GetStaticProps } from 'next'
 import Image from 'next/image'
+import WorkCardList from '../components/WorkCardList'
 import { client } from '../libs/client'
 import type { Work } from '../types/work'
 
@@ -31,32 +31,9 @@ const IndexPage = (props: IndexProps) => {
         </div>
       </section>
       <section>
-        <h2 className="text-center text-2xl">Works</h2>
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -m-4">
-            {
-              works.map((work) => 
-                <div className="p-4 md:w-1/3">
-                  <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                    <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={work.image.url} alt="blog" />
-                    <div className="p-6">
-                      <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
-                      <h1 className="title-font text-lg font-medium text-gray-900 mb-3">{work.name}</h1>
-                      <p className="leading-relaxed mb-3">{work.body}</p>
-                      <div className="flex items-center flex-wrap ">
-                        <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                          <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5l7 7-7 7"></path>
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )
-            }
-          </div>
+        <div className="container mx-auto px-5 py-24">
+          <h2 className="text-center text-3xl">Works</h2>
+          <WorkCardList works={works}></WorkCardList>
         </div>
       </section>
     </>
@@ -67,7 +44,7 @@ const IndexPage = (props: IndexProps) => {
 export default IndexPage
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
-  const works = await client.get({ endpoint: 'works', queries: {limit: 3} })
+  const works = await client.get({ endpoint: 'works' })
   return {
     props: {
       works: works.contents
