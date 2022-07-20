@@ -1,15 +1,19 @@
 import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 import WorkCardList from '../components/WorkCardList'
+import SkillBarList from '../components/SkillBarList'
 import { client } from '../libs/client'
+import type { Skill } from '../types/skill'
 import type { Work } from '../types/work'
 
 type IndexProps = {
-  works: Work[]
+  works: Work[];
+  backendskills: Skill[];
+  frontendskills: Skill[];
 }
 
 const IndexPage = (props: IndexProps) => {
-  const { works } = props
+  const { works, backendskills, frontendskills } = props
   return (
     <>
       <section>
@@ -30,14 +34,22 @@ const IndexPage = (props: IndexProps) => {
           </div>
         </div>
       </section>
-      <section>
+      <section className="bg-gray-100">
         <div className="container mx-auto px-5 py-24">
           <h2 className="font-fancy	text-center text-3xl">Works</h2>
           <WorkCardList works={works}></WorkCardList>
         </div>
       </section>
+      <section>
+      <div className="container mx-auto px-5 py-24">
+        <h2 className="font-fancy	text-center text-3xl">My Skills</h2>
+        <div className="flex flex-wrap mt-6">
+          <SkillBarList skills={frontendskills} title="Frontend SKill" reverse={true} />
+          <SkillBarList skills={backendskills} title="Backend SKill" />
+        </div>
+      </div>
+      </section>
     </>
-    
   )
 }
 
@@ -45,9 +57,13 @@ export default IndexPage
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
   const works = await client.get({ endpoint: 'works' })
+  const frontendskills = await client.get({ endpoint: 'skills', queries: {filters: 'category[contains]フロントエンド', orders: '-score'}})
+  const backendskills = await client.get({ endpoint: 'skills', queries: {filters: 'category[contains]バックエンド', orders: '-score'}})
   return {
     props: {
-      works: works.contents
+      works: works.contents,
+      backendskills: backendskills.contents,
+      frontendskills: frontendskills.contents,
     }
   }
 }
