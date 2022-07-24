@@ -5,6 +5,7 @@ export type Work = {
   name: string;
   body: string;
   image: Image;
+  url: string;
   skill: Skill[];
   createdAt: string;
   updatedAt: string;
