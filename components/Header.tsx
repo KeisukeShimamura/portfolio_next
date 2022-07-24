@@ -1,26 +1,34 @@
 import Link from "next/link";
+import { useState } from 'react';
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 export default function Header() {
+  const [showHeader, setShowHeader] = useState(true);
+    useScrollPosition(({ prevPos, currPos }) => {
+      const visible = currPos.y > prevPos.y;
+      setShowHeader(visible);
+    }, []);
+    
   return (
-    <header>
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <header className={`fixed top-0 z-10 w-full duration-300 bg-black ${showHeader ? "" : "translate-y-[-100%]"}`}>
+      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center text-white">
         <Link href="/">
-          <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+          <a className="flex title-font font-medium items-center mb-4 md:mb-0">
             <span className="ml-3 text-xl font-fancy">My Portfolio</span>
           </a>
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
           <Link href="/">
-            <a className="mr-5 hover:text-gray-900">Home</a>
+            <a className="mr-5">Home</a>
           </Link>
-          <Link href="/#about" className="mr-5 hover:text-gray-900">
-            <a className="mr-5 hover:text-gray-900">About</a>
+          <Link href="/#about" className="mr-5">
+            <a className="mr-5">About</a>
           </Link>
-          <Link href="/#works" className="mr-5 hover:text-gray-900">
-            <a className="mr-5 hover:text-gray-900">Works</a>
+          <Link href="/#works" className="mr-5">
+            <a className="mr-5">Works</a>
           </Link>
-          <Link href="/#skill" className="mr-5 hover:text-gray-900">
-            <a className="mr-5 hover:text-gray-900">Skill</a>
+          <Link href="/#skill" className="mr-5">
+            <a className="mr-5">Skill</a>
           </Link>
         </nav>
       </div>

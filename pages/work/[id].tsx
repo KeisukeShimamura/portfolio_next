@@ -15,7 +15,7 @@ const WorkPage = (props: WorkProps) => {
   const { work, otherWorks } = props
   return (
     <>
-      <section>
+      <section className="mt-20">
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 lg:pr-12 md:pr-8 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">{work.name}</h1>
