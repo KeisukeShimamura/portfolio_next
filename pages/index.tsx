@@ -6,6 +6,7 @@ import { client } from '../libs/client'
 import type { Skill } from '../types/skill'
 import type { Work } from '../types/work'
 import type { setting } from '../types/setting'
+import { FadeIn } from '../components/FadeIn'
 
 type IndexProps = {
   setting: setting
@@ -49,19 +50,23 @@ const IndexPage = (props: IndexProps) => {
         </div>
       </section>
       <section id="works" className="bg-gray-100">
-        <div className="container mx-auto px-5 py-24">
-          <h2 className="font-fancy	text-center text-3xl">Works</h2>
-          <WorkCardList works={works}></WorkCardList>
-        </div>
+        <FadeIn>
+          <div className="container mx-auto px-5 py-24">
+            <h2 className="font-fancy	text-center text-3xl">Works</h2>
+            <WorkCardList works={works}></WorkCardList>
+          </div>
+        </FadeIn>
       </section>
       <section id="skill">
-      <div className="container mx-auto px-5 py-24">
-        <h2 className="font-fancy	text-center text-3xl">My Skills</h2>
-        <div className="flex flex-wrap mt-6">
-          <SkillBarList skills={frontendskills} title="Frontend SKill" reverse={true} />
-          <SkillBarList skills={backendskills} title="Backend SKill" />
-        </div>
-      </div>
+        <FadeIn>
+          <div className="container mx-auto px-5 py-24">
+            <h2 className="font-fancy	text-center text-3xl">My Skills</h2>
+            <div className="flex flex-wrap mt-6">
+              <SkillBarList skills={frontendskills} title="Frontend SKill" reverse={true} />
+              <SkillBarList skills={backendskills} title="Backend SKill" />
+            </div>
+          </div>
+        </FadeIn>
       </section>
     </>
   )

@@ -4,6 +4,7 @@ import { client } from '../../libs/client'
 import Image from 'next/image'
 import ImageSlider from '../../components/ImageSlider'
 import WorkCardList from '../../components/WorkCardList'
+import { FadeIn } from '../../components/FadeIn'
 
 type WorkProps = {
   work: Work
@@ -54,10 +55,12 @@ const WorkPage = (props: WorkProps) => {
         </div>
       </section>
       <section className="bg-gray-100">
-        <div className="container mx-auto px-5 py-24">
-          <h2 className="font-fancy	text-center text-3xl">Other Works</h2>
-          <WorkCardList works={otherWorks}></WorkCardList>
-        </div>
+        <FadeIn>
+          <div className="container mx-auto px-5 py-24">
+            <h2 className="font-fancy	text-center text-3xl">Other Works</h2>
+            <WorkCardList works={otherWorks}></WorkCardList>
+          </div>
+        </FadeIn>
       </section>
     </>
   )
