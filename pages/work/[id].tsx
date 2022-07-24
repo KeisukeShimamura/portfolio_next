@@ -28,7 +28,7 @@ const WorkPage = (props: WorkProps) => {
                 return (
                   <div className="mb-4">
                     <h2 className="font-bold text-xl">URL</h2>
-                    <a className="text-indigo-400" href={work.url} target="_blank">{work.url}</a>
+                    <a className="text-indigo-400" href={work.url} target="_blank" rel="noreferrer">{work.url}</a>
                   </div>
                 )
               }
@@ -39,7 +39,7 @@ const WorkPage = (props: WorkProps) => {
                 {
                   work.skill.map((s) =>
                     <div key={s.id} className="mx-2">
-                      <Image src={s.icon.url} width={60} height={60}/>
+                      <Image src={s.icon.url} width={60} height={60} alt="skill"/>
                     </div>
                   )
                 }
