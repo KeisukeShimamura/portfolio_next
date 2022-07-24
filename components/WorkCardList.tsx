@@ -10,7 +10,7 @@ const WorkCardList = ({ works }: Props) => (
     <div className="flex flex-wrap -m-4">
       {
         works.map((work) => 
-          <div key={work.id} className="p-4 md:w-1/3">
+          <div key={work.id} className="px-0 py-4 md:px-3 md:w-1/3">
             <Link href={`/work/${work.id}`}>
               <a>
                 <article className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-xl bg-white">
