@@ -3,16 +3,18 @@ import type { Work } from '../../types/work'
 import { client } from '../../libs/client'
 import Image from 'next/image'
 import ImageSlider from '../../components/ImageSlider'
+import WorkCardList from '../../components/WorkCardList'
 
 type WorkProps = {
   work: Work
+  otherWorks: Work[]
 }
 
 const WorkPage = (props: WorkProps) => {
-  const { work } = props
+  const { work, otherWorks } = props
   return (
     <>
-      <section className="text-gray-600 body-font">
+      <section>
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 lg:pr-12 md:pr-8 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">{work.name}</h1>
@@ -51,6 +53,12 @@ const WorkPage = (props: WorkProps) => {
           </div>
         </div>
       </section>
+      <section className="bg-gray-100">
+        <div className="container mx-auto px-5 py-24">
+          <h2 className="font-fancy	text-center text-3xl">Other Works</h2>
+          <WorkCardList works={otherWorks}></WorkCardList>
+        </div>
+      </section>
     </>
   )
 }
@@ -71,9 +79,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id
   const works = await client.get({ endpoint: 'works', queries: {filters: 'id[equals]' + id} })
+  const otherWorks = await client.get({ endpoint: 'works', queries: {filters: 'id[not_equals]' + id, orders: '-publishedAt', limit: 3} })
   return {
     props: {
-      work: works.contents[0]
+      work: works.contents[0],
+      otherWorks: otherWorks.contents,
     }
   }
 }
