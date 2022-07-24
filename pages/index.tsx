@@ -56,7 +56,7 @@ const IndexPage = (props: IndexProps) => {
 export default IndexPage
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
-  const works = await client.get({ endpoint: 'works' })
+  const works = await client.get({ endpoint: 'works', queries: {orders: 'publishedAt'} })
   const frontendskills = await client.get({ endpoint: 'skills', queries: {filters: 'category[contains]フロントエンド', orders: '-score'}})
   const backendskills = await client.get({ endpoint: 'skills', queries: {filters: 'category[contains]バックエンド', orders: '-score'}})
   return {
