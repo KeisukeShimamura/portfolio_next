@@ -17,7 +17,7 @@ const WorkCardList = ({ works }: Props) => (
                   <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={work.image.url} alt="blog" />
                   <div className="p-6">
                     <h3 className="title-font text-lg font-medium text-gray-900 mb-3">{work.name}</h3>
-                    <p className="leading-relaxed mb-3">{work.body}</p>
+                    <p className="leading-relaxed mb-3 text-sm line-clamp-3">{work.body}</p>
                     <div className="my-1 flex flex-wrap">
                       {
                         work.skill.map((s) =>
