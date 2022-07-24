@@ -23,10 +23,16 @@ const WorkPage = (props: WorkProps) => {
                 ))
               }
             </div>
-            <div className="mb-4">
-              <h2 className="font-bold text-xl">URL</h2>
-              <a className="text-indigo-400" href={work.url} target="_blank">{work.url}</a>
-            </div>
+            {(() => {
+              if (work.url) {
+                return (
+                  <div className="mb-4">
+                    <h2 className="font-bold text-xl">URL</h2>
+                    <a className="text-indigo-400" href={work.url} target="_blank">{work.url}</a>
+                  </div>
+                )
+              }
+            })()}
             <div className="mb-4">
               <h2 className="font-bold text-xl">使用技術</h2>
               <div className="flex flex-wrap">
