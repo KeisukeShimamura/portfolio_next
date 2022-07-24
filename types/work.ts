@@ -1,9 +1,11 @@
+import { Skill } from "./skill";
+
 export type Work = {
   id: string;
   name: string;
   body: string;
   image: Image;
-  skill: string[];
+  skill: Skill[];
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
