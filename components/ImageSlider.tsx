@@ -1,25 +1,28 @@
 import 'swiper/css/bundle'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Pagination, Navigation } from 'swiper'
+import SwiperCore, { Pagination, Autoplay, EffectFade } from 'swiper'
 import { ImageCustomField } from '../types/work'
 
 type ImageSliderProps = {
   images: ImageCustomField[]
 }
 
-SwiperCore.use([Pagination, Navigation]) 
+SwiperCore.use([Pagination, Autoplay, EffectFade]) 
 
 const ImageSlider = (props: ImageSliderProps) => {
   const { images } = props
   return (
     <>
       <Swiper
-        slidesPerView={1} //一度に表示するスライドの数
+        slidesPerView={1}
         pagination={{
           clickable: true,
         }}
-        navigation //スライドを前後させるためのボタン、スライドの左右にある
+        autoplay={{ delay: 1000, disableOnInteraction: true }}
+        speed={3000}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
         loop={true}
       >
         {
