@@ -2,6 +2,7 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import type { Work } from '../../types/work'
 import { client } from '../../libs/client'
 import Image from 'next/image'
+import ImageSlider from '../../components/ImageSlider'
 
 type WorkProps = {
   work: Work
@@ -13,8 +14,8 @@ const WorkPage = (props: WorkProps) => {
     <>
       <section className="text-gray-600 body-font">
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold font-medium text-gray-900">{work.name}</h1>
+          <div className="lg:flex-grow md:w-1/2 lg:pr-12 md:pr-8 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">{work.name}</h1>
             <div className="mb-4 text-left">
               {
                 work.body.split('\n').map((str, index) => (
@@ -39,8 +40,8 @@ const WorkPage = (props: WorkProps) => {
               </div>
             </div>
           </div>
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-            <img className="object-cover object-center rounded" alt="hero" src={work.image.url} />
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-full">
+            <ImageSlider images={work.images} />
           </div>
         </div>
       </section>
