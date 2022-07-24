@@ -12,7 +12,7 @@ const SkillBarList = ({ skills, title, reverse=false }: Props) => (
     <div className="flex flex-col">
       {
         skills.map((skill) => 
-          <div className="relative h-10 bg-gray-100 mb-6 rounded">
+          <div key={skill.id} className="relative h-10 bg-gray-100 mb-6 rounded">
             <div className={`animate-graph${skill.score} h-10 absolute ${reverse ? 'right-0 flex-row-reverse' : 'left-0'} top-0 bottom-0 m-auto bg-indigo-500 flex items-center justify-between md:px-6 px-2 rounded`}>
               <span className="text-white md:text-base text-sm">{skill.name}</span>
               <span className="text-white md:text-base text-sm">{skill.score}</span>
