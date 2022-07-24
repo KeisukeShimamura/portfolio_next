@@ -16,7 +16,8 @@ const IndexPage = (props: IndexProps) => {
   const { works, backendskills, frontendskills } = props
   return (
     <>
-      <section>
+      <section id="about">
+        <h2 className="font-fancy	text-center text-3xl">About</h2>
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
             <img className="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600"/>
@@ -34,13 +35,13 @@ const IndexPage = (props: IndexProps) => {
           </div>
         </div>
       </section>
-      <section className="bg-gray-100">
+      <section id="works" className="bg-gray-100">
         <div className="container mx-auto px-5 py-24">
           <h2 className="font-fancy	text-center text-3xl">Works</h2>
           <WorkCardList works={works}></WorkCardList>
         </div>
       </section>
-      <section>
+      <section id="skill">
       <div className="container mx-auto px-5 py-24">
         <h2 className="font-fancy	text-center text-3xl">My Skills</h2>
         <div className="flex flex-wrap mt-6">
