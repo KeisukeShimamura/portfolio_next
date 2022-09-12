@@ -21,7 +21,7 @@ const IndexPage = (props: IndexProps) => {
   const { expertises, works, backendskills, frontendskills } = props
   return (
     <>
-      <Section id="about" title="About" backgroundcolor="mt-20">
+      <Section id="about" title="About" backgroundcolor="mt-12">
         <div className="flex md:flex-row flex-col items-center mt-8">
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
             メイン画像
@@ -36,21 +36,21 @@ const IndexPage = (props: IndexProps) => {
               <ul className="mt-4">
                 <li className="mt-2">
                   <span className="text-indigo-500 font-bold">
-                    <FontAwesomeIcon icon={faSquareCheck} />
+                    <FontAwesomeIcon icon={faSquareCheck} className="w-4 h-4" />
                     <span className="ml-2">2013年4月〜2018年10月</span>
                   </span><br />
                   <span className="text-sm">SIerに就職し、業務システムやWebなど色んな言語・環境のプロジェクトを従事</span>
                 </li>
                 <li className="mt-2">
                   <span className="text-indigo-500 font-bold">
-                    <FontAwesomeIcon icon={faSquareCheck} />
+                    <FontAwesomeIcon icon={faSquareCheck} className="w-4 h-4" />
                     <span className="ml-2">2018年11月〜2022年10月</span>
                   </span><br />
                   <span className="text-sm">人材業界のベンチャー企業に転職。自社サービスの保守や新規サービスの開発をメインに業務を遂行</span>
                 </li>
                 <li className="mt-2">
                   <span className="text-indigo-500 font-bold">
-                    <FontAwesomeIcon icon={faSquareCheck} />
+                    <FontAwesomeIcon icon={faSquareCheck} className="w-4 h-4" />
                     <span className="ml-2">2022年11月〜（予定）</span>
                   </span><br />
                   <span className="text-sm">フリーランスとして独立予定</span>
