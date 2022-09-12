@@ -21,7 +21,7 @@ const IndexPage = (props: IndexProps) => {
   const { expertises, works, backendskills, frontendskills } = props
   return (
     <>
-      <Section id="about" title="About">
+      <Section id="about" title="About" backgroundcolor="mt-20">
         <div className="flex md:flex-row flex-col items-center mt-8">
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
             メイン画像
@@ -66,7 +66,7 @@ const IndexPage = (props: IndexProps) => {
           </div>
         </div>
       </Section>
-      <Section id="test" title="My Expertise">
+      <Section id="expertises" title="My Expertise">
         <ExpertiseCardList expertises={expertises} />
       </Section>
       <Section id="works" title="Works">

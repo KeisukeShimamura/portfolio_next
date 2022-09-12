@@ -41,6 +41,14 @@ module.exports = {
           "0%": { width: 0 },
           "100%": { width: "50%" },
         },
+        slideIn: {
+          "0%": {
+            transform: "translateX(200px)",
+          },
+          "100%": {
+            transform: "translateX(0)",
+          }
+        }
       },
       animation: {
         graph100: 'graph100 3s forwards',
@@ -49,6 +57,7 @@ module.exports = {
         graph70: 'graph70 3s forwards',
         graph60: 'graph60 3s forwards',
         graph50: 'graph50 3s forwards',
+        slideIn: 'slideIn 0.5s forwards',
       }
     },
   },
