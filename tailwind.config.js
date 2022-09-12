@@ -13,6 +13,9 @@ module.exports = {
       fancy: ["Pacifico"],
     },
     extend: {
+      colors: {
+        'water': '#f5fcff',
+      },
       keyframes: {
         graph100: {
           "0%": { width: 0 },
