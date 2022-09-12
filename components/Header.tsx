@@ -29,28 +29,36 @@ export default function Header() {
                 <span>Menu</span>
                 <FontAwesomeIcon icon={faXmark} className="absolute text-3xl right-0 top-5" />
               </button>
-              <a href="/#expertises" className="border-b border-gray-500">
-                <button onClick={menuFunction} className="w-full py-4">
-                Expertises
-                </button>
-              </a>
-              <a href="/#works" className="border-b border-gray-500">
-                <button onClick={menuFunction} className="w-full py-4">
-                  Works
-                </button>
-              </a>
-              <a href="/#skill" className="border-b border-gray-500">
-                <button onClick={menuFunction} className="w-full py-4">
-                  Skill
-                </button>
-              </a>
+              <Link href="/#expertises">
+                <a className="border-b border-gray-500">
+                  <button onClick={menuFunction} className="w-full py-4">
+                  Expertises
+                  </button>
+                </a>
+              </Link>
+              <Link href="/#works">
+                <a className="border-b border-gray-500">
+                  <button onClick={menuFunction} className="w-full py-4">
+                    Works
+                  </button>
+                </a>
+              </Link>
+              <Link href="/#skill">
+                <a className="border-b border-gray-500">
+                  <button onClick={menuFunction} className="w-full py-4">
+                    Skill
+                  </button>
+                </a>
+              </Link>
               <div className="flex-1"></div>
-              <a href="/#contact" className="mb-6">
-                <button onClick={menuFunction}>
-                  <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5" />
-                  <span className="text-lg ml-4">Contact</span>
-                </button>
-              </a>
+              <Link href="/#contact">
+                <a className="mb-6">
+                  <button onClick={menuFunction}>
+                    <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5" />
+                    <span className="text-lg ml-4">Contact</span>
+                  </button>
+                </a>
+              </Link>
               <a href="https://github.com/KeisukeShimamura" target="_blank" rel="noreferrer" className="pb-12">
                 <FontAwesomeIcon icon={faGithub} className="w-5 h-5" />
                 <span className="text-lg ml-4">GitHub</span>
