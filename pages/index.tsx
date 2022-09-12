@@ -78,6 +78,25 @@ const IndexPage = (props: IndexProps) => {
           <SkillBarList skills={backendskills} title="Backend SKill" />
         </div>
       </Section>
+      <Section id="contact" title="Contact">
+        <form className="mx-2 md:mx-32 lg:mx-64 mt-12">
+          <div className="mb-6">
+            <label htmlFor="name" className="block mb-2 text-sm font-medium">Your Name</label>
+            <input type="text" id="name" className="border border-indigo-500 text-gray-900 text-sm rounded-md w-full p-2" />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="email" className="block mb-2 text-sm font-medium">Your Email</label>
+            <input type="email" id="email" className="border border-indigo-500 text-gray-900 text-sm rounded-md w-full p-2" />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="message" className="block mb-2 text-sm font-medium">Message</label>
+            <textarea id="message" className="border border-indigo-500 text-gray-900 text-sm rounded-md w-full p-2 h-32" placeholder="Type your message…" />
+          </div>
+          <div className="text-center">
+            <button className="bg-indigo-500 text-white rounded-md px-6 py-3">Submit</button>
+          </div>
+        </form>
+      </Section>
     </>
   )
 }
