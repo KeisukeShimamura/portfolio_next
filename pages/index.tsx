@@ -1,4 +1,5 @@
 import type { GetStaticProps } from 'next'
+import Image from 'next/image'
 import Section from '../components/Section'
 import WorkCardList from '../components/WorkCardList'
 import SkillBarList from '../components/SkillBarList'
@@ -23,8 +24,8 @@ const IndexPage = (props: IndexProps) => {
     <>
       <Section id="about" title="About" backgroundcolor="mt-12">
         <div className="flex md:flex-row flex-col items-center mt-8">
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-            メイン画像
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 h-96 relative">
+            <Image src="/main_image.png" layout="fill" objectFit="contain" />
           </div>
           <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
             <div className="flex flex-col mb-8 text-left">
