@@ -1,9 +1,9 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  mode: 'jit',
+  mode: "jit",
   // パージの対象ファイルを設定
-  purge: ['./pages/**/*.tsx', './components/**/*.tsx', './public/**/*.html'],
+  purge: ["./pages/**/*.tsx", "./components/**/*.tsx", "./public/**/*.html"],
   darkMode: false,
   content: [],
   theme: {
@@ -14,7 +14,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        'water': '#f5fcff',
+        water: "#f5fcff",
       },
       keyframes: {
         graph100: {
@@ -47,21 +47,22 @@ module.exports = {
           },
           "100%": {
             transform: "translateX(0)",
-          }
-        }
+          },
+        },
       },
       animation: {
-        graph100: 'graph100 3s forwards',
-        graph90: 'graph90 3s forwards',
-        graph80: 'graph80 3s forwards',
-        graph70: 'graph70 3s forwards',
-        graph60: 'graph60 3s forwards',
-        graph50: 'graph50 3s forwards',
-        slideIn: 'slideIn 0.5s forwards',
-      }
+        graph100: "graph100 3s forwards",
+        graph90: "graph90 3s forwards",
+        graph80: "graph80 3s forwards",
+        graph70: "graph70 3s forwards",
+        graph60: "graph60 3s forwards",
+        graph50: "graph50 3s forwards",
+        slideIn: "slideIn 0.5s forwards",
+      },
     },
   },
   plugins: [
-    require('@tailwindcss/line-clamp'),
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/typography"),
   ],
-}
+};

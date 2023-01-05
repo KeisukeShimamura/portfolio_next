@@ -1,87 +1,80 @@
-import { GetStaticProps, GetStaticPaths } from 'next'
-import type { Work } from '../../types/work'
-import { client } from '../../libs/client'
-import Image from 'next/image'
-import ImageSlider from '../../components/ImageSlider'
-import WorkCardList from '../../components/WorkCardList'
-import Section from '../../components/Section'
+import { GetStaticProps, GetStaticPaths } from "next";
+import type { Work } from "../../types/work";
+import { client } from "../../libs/client";
+import Image from "next/image";
+import ImageSlider from "../../components/ImageSlider";
+import WorkCardList from "../../components/WorkCardList";
+import Section from "../../components/Section";
 
 type WorkProps = {
-  work: Work
-  otherWorks: Work[]
-}
+  work: Work;
+  otherWorks: Work[];
+};
 
 const WorkPage = (props: WorkProps) => {
-  const { work, otherWorks } = props
+  const { work, otherWorks } = props;
+
   return (
     <>
-      <section className="mt-20">
-        <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-          <div className="lg:flex-grow md:w-1/2 lg:pr-12 md:pr-8 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">{work.name}</h1>
-            <div className="mb-4 text-left">
-              {
-                work.body.split('\n').map((str, index) => (
-                  <p key={index}>{str}<br /></p>
-                ))
-              }
-            </div>
-            {(() => {
-              if (work.url) {
-                return (
-                  <div className="mb-4">
-                    <h2 className="font-bold text-xl">URL</h2>
-                    <a className="text-indigo-400" href={work.url} target="_blank" rel="noreferrer">{work.url}</a>
-                  </div>
-                )
-              }
-            })()}
-            <div className="mb-4">
-              <h2 className="font-bold text-xl">使用技術</h2>
-              <div className="flex flex-wrap">
-                {
-                  work.skill.map((s) =>
-                    <div key={s.id} className="mx-2">
-                      <Image src={s.icon.url} width={60} height={60} alt="skill"/>
-                    </div>
-                  )
-                }
-              </div>
-            </div>
-          </div>
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-full">
-            <ImageSlider images={work.images} />
-          </div>
+      <Section id="works">
+        <div className="mb-4">
+          <ImageSlider images={work.images} />
         </div>
-      </section>
-      <Section id="works" title="Other Works">
+        <h1 className="sm:text-4xl text-3xl mb-6 font-bold text-gray-900">
+          {work.name}
+        </h1>
+        <div
+          className="prose"
+          dangerouslySetInnerHTML={{ __html: work.body_html }}
+        ></div>
+        {work.skill && (
+          <div className="mb-6 text-left">
+            {work.skill.map((s) => (
+              <div className="mx-2 inline-block" key={s.id}>
+                <Image src={s.icon.url} width={60} height={60} alt="skill" />
+              </div>
+            ))}
+          </div>
+        )}
+      </Section>
+      <Section id="other-works" title="Other Works">
         <WorkCardList works={otherWorks}></WorkCardList>
       </Section>
     </>
-  )
-}
+  );
+};
 
-export default WorkPage
+export default WorkPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const works: Work[] = (await client.get({ endpoint: 'works' })).contents
+  const works: Work[] = (await client.get({ endpoint: "works" })).contents;
   const paths = works.map((work) => ({
-    params: { id: work.id.toString() }
-  }))
+    params: { id: work.id.toString() },
+  }));
   return {
     paths,
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const id = params?.id
-  const works = await client.get({ endpoint: 'works', queries: {filters: 'id[equals]' + id} })
-  const otherWorks = await client.get({ endpoint: 'works', queries: {filters: 'id[not_equals]' + id, orders: '-publishedAt', limit: 3} })
+  const id = params?.id;
+  const works = await client.get({
+    endpoint: "works",
+    queries: { filters: "id[equals]" + id },
+  });
+  const otherWorks = await client.get({
+    endpoint: "works",
+    queries: {
+      filters: "id[not_equals]" + id,
+      orders: "-publishedAt",
+      limit: 3,
+    },
+  });
   return {
     props: {
       work: works.contents[0],
       otherWorks: otherWorks.contents,
-    }
-  }
-}
+    },
+  };
+};
