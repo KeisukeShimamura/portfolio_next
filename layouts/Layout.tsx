@@ -1,14 +1,14 @@
-import React, { ReactNode } from 'react'
-import Head from 'next/head'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import React, { ReactNode } from "react";
+import Head from "next/head";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 type Props = {
-  children?: ReactNode
-  title?: string
-}
+  children?: ReactNode;
+  title?: string;
+};
 
-const Layout = ({ children, title = 'Portfolio' }: Props) => (
+const Layout = ({ children, title = "Portfolio" }: Props) => (
   <div className="text-gray-600 body-font">
     <Head>
       <title>{title}</title>
@@ -19,6 +19,6 @@ const Layout = ({ children, title = 'Portfolio' }: Props) => (
     {children}
     <Footer />
   </div>
-)
+);
 
-export default Layout
+export default Layout;

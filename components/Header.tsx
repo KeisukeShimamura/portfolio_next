@@ -1,16 +1,16 @@
 import Link from "next/link";
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Header() {
-  const [openMenu, setOpenMenu] = useState(false)
+  const [openMenu, setOpenMenu] = useState(false);
   const menuFunction = () => {
-    setOpenMenu(!openMenu)
-  }
+    setOpenMenu(!openMenu);
+  };
 
   return (
     <header className="w-full bg-black text-white fixed top-0 z-10">
@@ -25,14 +25,20 @@ export default function Header() {
         {openMenu ? (
           <div className="flex flex-row absolute z-30 top-0 right-0 h-screen min-w-full animate-slideIn">
             <div className="w-full flex flex-col font-bold bg-black opacity-80 px-12">
-              <button onClick={menuFunction} className="bg-black py-4 text-center relative opacity-100">
+              <button
+                onClick={menuFunction}
+                className="bg-black py-4 text-center relative opacity-100"
+              >
                 <span>Menu</span>
-                <FontAwesomeIcon icon={faXmark} className="absolute text-3xl right-0 top-5" />
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  className="absolute text-3xl right-0 top-5"
+                />
               </button>
               <Link href="/#expertises">
                 <a className="border-b border-gray-500">
                   <button onClick={menuFunction} className="w-full py-4">
-                  Expertises
+                    Expertises
                   </button>
                 </a>
               </Link>
@@ -59,7 +65,12 @@ export default function Header() {
                   </button>
                 </a>
               </Link>
-              <a href="https://github.com/KeisukeShimamura" target="_blank" rel="noreferrer" className="pb-12">
+              <a
+                href="https://github.com/KeisukeShimamura"
+                target="_blank"
+                rel="noreferrer"
+                className="pb-12"
+              >
                 <FontAwesomeIcon icon={faGithub} className="w-5 h-5" />
                 <span className="text-lg ml-4">GitHub</span>
               </a>
@@ -90,10 +101,13 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <button onClick={menuFunction} className="flex-initial absolute top-4 right-5 md:hidden">
+        <button
+          onClick={menuFunction}
+          className="flex-initial absolute top-4 right-5 md:hidden"
+        >
           <FontAwesomeIcon icon={faBars} className="text-3xl" />
         </button>
       </nav>
     </header>
-  )
+  );
 }

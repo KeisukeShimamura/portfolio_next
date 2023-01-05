@@ -7,4 +7,4 @@ export type Expertise = {
   updatedAt: string;
   publishedAt: string;
   revisedAt: string;
-}
+};

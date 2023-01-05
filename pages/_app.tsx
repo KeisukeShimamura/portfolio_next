@@ -1,6 +1,6 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import Layout from '../layouts/Layout'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import Layout from "../layouts/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </Layout>
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

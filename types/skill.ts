@@ -11,4 +11,4 @@ export type Skill = {
   updatedAt: string;
   publishedAt: string;
   revisedAt: string;
-}
+};
